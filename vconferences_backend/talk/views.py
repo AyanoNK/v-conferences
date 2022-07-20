@@ -1,3 +1,12 @@
-from django.shortcuts import render
+
+from talk.models import Talk
+from talk.serializers import TalkSerializer
+from rest_framework import viewsets, permissions
+
 
 # Create your views here.
+class TalkViewSet(viewsets.ModelViewSet):
+    queryset = Talk.objects.all()
+    serializer_class = TalkSerializer
+
+    permission_classes = [permissions.IsAuthenticated]
