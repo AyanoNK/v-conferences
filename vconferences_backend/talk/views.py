@@ -9,4 +9,4 @@ class TalkViewSet(viewsets.ModelViewSet):
     queryset = Talk.objects.all()
     serializer_class = TalkSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
