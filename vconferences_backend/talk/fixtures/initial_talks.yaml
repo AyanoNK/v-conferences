@@ -1,0 +1,18 @@
+- model: talk.Talk
+  pk: 1
+  fields:
+    title: "CILLUM NON"
+    abstract: "Aliqua consequat mollit Lorem dolor nulla qui sunt tempor veniam eiusmod ullamco quis commodo."
+    speaker: 1
+    room: 873
+    created_at: "2022-07-21T00:25:13.833049Z"
+    updated_at: "2022-07-21T00:25:13.833049Z"
+- model: talk.Talk
+  pk: 2
+  fields:
+    title: "AD IPSUM"
+    abstract: "Fugiat nisi et mollit consequat sint."
+    room: 343
+    speaker: 2
+    created_at: "2022-07-21T00:25:13.833049Z"
+    updated_at: "2022-07-21T00:25:13.833049Z"

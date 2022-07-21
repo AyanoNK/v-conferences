@@ -1,0 +1,19 @@
+- model: speaker.Speaker
+  pk: 1
+  fields:
+    name: "Hendrix Carroll"
+    company: "Songlines"
+    email: "hendrixcarroll@songlines.com"
+    bio: "Magna velit adipisicing ullamco sint duis nisi."
+    created_at: "2022-07-21T00:25:13.833049Z"
+    updated_at: "2022-07-21T00:25:13.833049Z"
+
+- model: speaker.Speaker
+  pk: 2
+  fields:
+    name: "Melody Juarez"
+    company: "Zillatide"
+    email: "melodyjuarez@zillatide.com"
+    bio: "Veniam do eu quis officia enim."
+    created_at: "2022-07-21T00:25:13.833049Z"
+    updated_at: "2022-07-21T00:25:13.833049Z"
