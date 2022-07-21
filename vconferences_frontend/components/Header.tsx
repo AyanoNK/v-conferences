@@ -25,11 +25,9 @@ const Header = () => {
     <div className={styles.header}>
       <div className={styles.navbar}>
         {rows.map((row: Row, index: number) => (
-          <div key={index} className={styles.navitem}>
-            <Link href={row.href}>
-              <a>{row.title}</a>
-            </Link>
-          </div>
+          <Link key={index} href={row.href}>
+            <a className={styles.navitem}>{row.title}</a>
+          </Link>
         ))}
       </div>
     </div>

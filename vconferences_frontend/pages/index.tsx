@@ -2,6 +2,25 @@ import Link from "next/link";
 import instance from "../axios";
 import styles from "../styles/Home.module.scss";
 
+type Row = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+const rows: Row[] = [
+  {
+    title: "About",
+    description: "About vConferences",
+    href: "/about",
+  },
+  {
+    title: "Conferences",
+    description: "See available conferences",
+    href: "/conferences",
+  },
+];
+
 const Home = () => {
   return (
     <div className={styles.container}>
@@ -10,18 +29,14 @@ const Home = () => {
       </h1>
 
       <div className={styles.grid}>
-        <Link href="/about">
-          <a className={styles.card}>
-            <h2>About &rarr;</h2>
-            <p>About vConferences</p>
-          </a>
-        </Link>
-        <Link href="/conferences">
-          <a className={styles.card}>
-            <h2>Conferences &rarr;</h2>
-            <p>See available conferences</p>
-          </a>
-        </Link>
+        {rows.map((row: Row, index: number) => (
+          <Link href={row.href} key={index}>
+            <a className={styles.card}>
+              <h2>{row.title} &rarr;</h2>
+              <p>{row.description}</p>
+            </a>
+          </Link>
+        ))}
       </div>
     </div>
   );
