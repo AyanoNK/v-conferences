@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import Header from "../components/Header";
 
+import styles from "../styles/Home.module.scss";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
@@ -13,10 +15,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <div id="flexer">
         <Header />
-        <main>
-          <div id="boxer">
-            <Component {...pageProps} />
-          </div>
+        <main className={styles.main}>
+          <Component {...pageProps} />
         </main>
       </div>
     </div>
