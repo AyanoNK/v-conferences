@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <Link href="/about">
-        <a className={styles.link}>About</a>
+        <a>About</a>
       </Link>
     </div>
   );
