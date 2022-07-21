@@ -43,12 +43,3 @@ const Home = () => {
 };
 
 export default Home;
-
-export async function getServerSideProps() {
-  const res = await instance.get("/talk/");
-  return {
-    props: {
-      talks: res.data,
-    },
-  };
-}
