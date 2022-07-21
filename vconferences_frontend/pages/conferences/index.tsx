@@ -1,5 +1,6 @@
 import { FC } from "react";
 import instance from "../../axios";
+import TalkCard from "./ConferenceCard";
 
 type Props = {
   talks: ListTalk[];
@@ -8,10 +9,7 @@ const Conferences: FC<Props> = ({ talks }) => {
   return (
     <div>
       {talks.map((talk: ListTalk, index: number) => (
-        <div key={index}>
-          <h1>{talk.title}</h1>
-          <p>{talk.abstract}</p>
-        </div>
+        <TalkCard talk={talk} key={index} />
       ))}
     </div>
   );
@@ -20,10 +18,17 @@ const Conferences: FC<Props> = ({ talks }) => {
 export default Conferences;
 
 export async function getServerSideProps() {
-  const res = await instance.get("/talk/");
-  return {
+  const response = {
     props: {
-      talks: res.data,
+      talks: [],
     },
   };
+  const res = await instance
+    .get("/talk/")
+    .then((res) => {
+      response.props.talks = res.data;
+      return response;
+    })
+    .catch(() => response);
+  return res;
 }
