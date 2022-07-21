@@ -2,12 +2,12 @@ import { FC } from "react";
 import instance from "../../axios";
 
 type Props = {
-  talks: Talk[];
+  talks: ListTalk[];
 };
 const Conferences: FC<Props> = ({ talks }) => {
   return (
     <div>
-      {talks.map((talk: Talk, index: number) => (
+      {talks.map((talk: ListTalk, index: number) => (
         <div key={index}>
           <h1>{talk.title}</h1>
           <p>{talk.abstract}</p>

@@ -1,6 +1,5 @@
-type Speaker = {
-  id: number;
+type ListSpeaker = {
+  bio: string;
   name: string;
-  created_at: string;
-  updated_at: string;
+  email: string;
 };
