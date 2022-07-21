@@ -1,6 +1,7 @@
 - model: speaker.Speaker
   pk: 1
   fields:
+    user: 2
     bio: "Magna velit adipisicing ullamco sint duis nisi."
     created_at: "2022-07-20T00:25:13.833049Z"
     updated_at: "2022-07-20T00:25:13.833049Z"
@@ -8,6 +9,7 @@
 - model: speaker.Speaker
   pk: 2
   fields:
+    user: 3
     bio: "Veniam do eu quis officia enim."
     created_at: "2022-07-20T00:25:13.833049Z"
     updated_at: "2022-07-20T00:25:13.833049Z"

@@ -10,9 +10,14 @@ class AttendeeSerializer(serializers.ModelSerializer):
     def get_name(self, obj):
         return obj.get_full_name()
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['company'] = instance.company.name
+        return data
+
     class Meta:
         model = User
-        fields = ('name',)
+        fields = ('name', 'company')
 
 
 class TalkAttendeeSerializer(serializers.ModelSerializer):
