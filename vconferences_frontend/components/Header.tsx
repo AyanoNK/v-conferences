@@ -11,6 +11,10 @@ type Row = {
 
 const rows: Row[] = [
   {
+    title: "Main",
+    href: "/",
+  },
+  {
     title: "About",
     href: "/about",
   },
