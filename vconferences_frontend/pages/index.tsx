@@ -1,11 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import instance from "../axios";
 import styles from "../styles/Home.module.scss";
 
-const Home: NextPage = () => {
-  console.log("host", process.env.BACKEND_SERVER_HOST);
+type Props = {
+  talks: Talk[];
+};
 
+const Home = ({ talks }: Props) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -72,3 +75,12 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getServerSideProps() {
+  const res = await instance.get("/talk/");
+  return {
+    props: {
+      talks: res.data,
+    },
+  };
+}
