@@ -27,13 +27,19 @@ const rows: Row[] = [
 const Header = () => {
   return (
     <div className={styles.header}>
-      <div className={styles.navbar}>
-        {rows.map((row: Row, index: number) => (
-          <Link key={index} href={row.href}>
-            <a className={styles.navitem}>{row.title}</a>
-          </Link>
-        ))}
+      <div className={styles.actions}>
+        <div className={styles.navbar}>
+          {rows.map((row: Row, index: number) => (
+            <Link key={index} href={row.href}>
+              <a className={styles.navitem}>{row.title}</a>
+            </Link>
+          ))}
+        </div>
+        <div className={styles.searchbar}>
+          <input type="text" placeholder="Search" />
+        </div>
       </div>
+      <button>logout</button>
     </div>
   );
 };
