@@ -37,10 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'custom_auth.apps.CustomAuthConfig',
+    'company.apps.CompanyConfig',
     'speaker.apps.SpeakerConfig',
     'talk.apps.TalkConfig',
     'rest_framework',
 ]
+AUTH_USER_MODEL = 'custom_auth.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

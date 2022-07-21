@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from talk.models import Talk
+from company.models import Company
 
 # Register your models here.
-admin.site.register(Talk)
+admin.site.register(Company)

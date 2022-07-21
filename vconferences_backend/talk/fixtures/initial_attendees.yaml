@@ -1,0 +1,21 @@
+- model: talk.TalkAttendee
+  pk: 1
+  fields:
+    talk: 1
+    attendee: 4
+    created_at: "2022-07-20T00:25:13.833049Z"
+    updated_at: "2022-07-20T00:25:13.833049Z"
+- model: talk.TalkAttendee
+  pk: 2
+  fields:
+    talk: 1
+    attendee: 5
+    created_at: "2022-07-20T00:25:13.833049Z"
+    updated_at: "2022-07-20T00:25:13.833049Z"
+- model: talk.TalkAttendee
+  pk: 2
+  fields:
+    talk: 1
+    attendee: 6
+    created_at: "2022-07-20T00:25:13.833049Z"
+    updated_at: "2022-07-20T00:25:13.833049Z"

@@ -1,0 +1,42 @@
+# Hosts
+- model: custom_auth.User
+  pk: 2
+  fields:
+    username: "hendrixcarroll@songlines.com"
+    first_name: "Hendrix"
+    last_name: "Carroll"
+    email: "hendrixcarroll@songlines.com"
+    company: 1
+- model: custom_auth.User
+  pk: 3
+  fields:
+    username: "melodyjuarez@zillatide.com"
+    first_name: "Melody"
+    last_name: "Juarez"
+    email: "melodyjuarez@zillatide.com"
+    company: 5
+# Attendees
+- model: custom_auth.User
+  pk: 4
+  fields:
+    username: "sandersriley@comtext.com"
+    first_name: "Sanders"
+    last_name: "Riley"
+    email: "sandersriley@comtext.com"
+    company: 2
+- model: custom_auth.User
+  pk: 5
+  fields:
+    username: "beancline@utarian.com"
+    first_name: "Bean"
+    last_name: "Cline"
+    email: "beancline@utarian.com"
+    company: 3
+- model: custom_auth.User
+  pk: 6
+  fields:
+    username: "alfredamitchell@dreamia.com"
+    first_name: "Alfreda"
+    last_name: "Mitchell"
+    email: "alfredamitchell@dreamia.com"
+    company: 4
