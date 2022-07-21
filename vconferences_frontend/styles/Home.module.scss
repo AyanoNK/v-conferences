@@ -123,3 +123,11 @@ $color-secondary: #f5f5f5;
     }
   }
 }
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+.navitem {
+  margin: 0 0.5rem;
+}
