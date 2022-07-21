@@ -112,3 +112,14 @@ $color-primary: #0070f3;
   height: 1em;
   margin-left: 0.5rem;
 }
+
+.header {
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 3rem;
+  background-color: teal;
+  color: white;
+  position: sticky;
+  top: 0;
+}

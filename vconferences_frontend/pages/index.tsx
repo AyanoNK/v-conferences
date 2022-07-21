@@ -7,7 +7,6 @@ import styles from "../styles/Home.module.scss";
 type Props = {
   talks: Talk[];
 };
-
 const Home = ({ talks }: Props) => {
   return (
     <div className={styles.container}>
