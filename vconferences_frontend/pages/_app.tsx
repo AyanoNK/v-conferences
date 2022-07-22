@@ -21,7 +21,7 @@ export const NavBarContext = createContext<NavBarContextInterface>(
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [searchValue, setSearchValue] = useState<string>("343");
+  const [searchValue, setSearchValue] = useState<string>("");
 
   return (
     <div>

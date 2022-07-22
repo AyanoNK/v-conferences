@@ -1,28 +1,33 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import styles from "../styles/Home.module.scss";
 
-type FormProps = {
-  email: string;
-  password: string;
-};
-
 const Login = () => {
-  const [form, setForm] = useState<FormProps>({} as FormProps);
+  const router = useRouter();
 
-  const onInputChange = (e: any) => {
-    setForm((previousState) => ({
-      ...previousState,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  const {
+    handleSubmit,
+    register,
+    formState: { isValid },
+  } = useForm({
+    mode: "onChange",
+    reValidateMode: "onChange",
+  });
 
-  const onSubmit = () => {
+  const onSubmit = (values: any) => {
     fetch("/api/login", {
       method: "POST",
-      body: JSON.stringify(form),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        localStorage.setItem("key", data.key);
+        router.push("/conferences");
+      });
   };
 
   return (
@@ -30,20 +35,24 @@ const Login = () => {
       <h1 className={styles.title}>
         Welcome to <b>vConferences</b>
       </h1>
-      <form onSubmit={onSubmit} className={styles.login}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.login}>
         <input
           type="text"
-          name="email"
           placeholder="Email"
-          onChange={onInputChange}
+          {...register("email", {
+            required: true,
+          })}
         />
         <input
           type="password"
-          name="password"
           placeholder="Password"
-          onChange={onInputChange}
+          {...register("password", {
+            required: true,
+          })}
         />
-        <button type="submit">Login</button>
+        <button type="submit" disabled={!isValid}>
+          Login
+        </button>
       </form>
     </div>
   );

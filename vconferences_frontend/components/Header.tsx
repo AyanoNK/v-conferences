@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import styles from "../styles/Home.module.scss";
 import { useNavbarContext } from "../pages/_app";
+import { useRouter } from "next/router";
 
 type Row = {
   title: string;
@@ -27,6 +28,13 @@ const rows: Row[] = [
 
 const Header = () => {
   const { searchValue, setSearchValue } = useNavbarContext();
+  const loggedIn = localStorage.getItem("key") !== null;
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("key");
+    router.push("/login");
+  };
 
   return (
     <div className={styles.header}>
@@ -47,7 +55,11 @@ const Header = () => {
           />
         </div>
       </div>
-      <button>logout</button>
+      {loggedIn ? (
+        <button onClick={handleLogout}>Logout</button>
+      ) : (
+        <button onClick={() => router.push("/login")}>Login</button>
+      )}
     </div>
   );
 };
