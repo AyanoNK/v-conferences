@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('speaker/', include('speaker.urls')),
     path('talk/', include('talk.urls')),
+    path('auth/', include('dj_rest_auth.urls'))
 ]

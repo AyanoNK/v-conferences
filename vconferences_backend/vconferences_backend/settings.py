@@ -73,6 +73,8 @@ INSTALLED_APPS = [
     'talk.apps.TalkConfig',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth'
 ]
 AUTH_USER_MODEL = 'custom_auth.User'
 
