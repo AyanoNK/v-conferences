@@ -27,12 +27,12 @@ const rows: Row[] = [
 ];
 
 const Header = () => {
-  const { searchValue, setSearchValue } = useNavbarContext();
-  const loggedIn = localStorage.getItem("key") !== null;
+  const { searchValue, setSearchValue, loggedKey, setLoggedKey } =
+    useNavbarContext();
   const router = useRouter();
 
   const handleLogout = () => {
-    localStorage.removeItem("key");
+    setLoggedKey(null);
     router.push("/login");
   };
 
@@ -55,7 +55,7 @@ const Header = () => {
           />
         </div>
       </div>
-      {loggedIn ? (
+      {loggedKey ? (
         <button onClick={handleLogout}>Logout</button>
       ) : (
         <button onClick={() => router.push("/login")}>Login</button>

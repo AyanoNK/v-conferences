@@ -7,7 +7,7 @@ import TalkCard from "./ConferenceCard";
 const Conferences = () => {
   const { searchValue } = useNavbarContext();
   const [talks, setTalks] = useState<ListTalk[]>([]);
-  const router = useRouter();
+  const [loading, isLoading] = useState(false);
 
   async function fetchData() {
     fetch(`/api/get_conferences_data?search=${searchValue}`)
@@ -16,14 +16,17 @@ const Conferences = () => {
   }
 
   useEffect(() => {
+    isLoading(true);
     setTimeout(() => {
       fetchData();
+      isLoading(false);
     }, 1500);
   }, [searchValue]);
 
   return (
     <div>
-      {talks.length === 0 && <h3>No hay resultados</h3>}
+      {loading && <h3>Cargando...</h3>}
+      {talks.length === 0 && !loading && <h3>No hay resultados</h3>}
       {talks.length > 0 &&
         talks.map((talk: ListTalk, index: number) => (
           <TalkCard talk={talk} key={index} />

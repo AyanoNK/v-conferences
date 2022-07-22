@@ -15,6 +15,8 @@ import {
 type NavBarContextInterface = {
   searchValue: string;
   setSearchValue: Dispatch<SetStateAction<string>>;
+  loggedKey: string | null;
+  setLoggedKey: Dispatch<SetStateAction<string | null>>;
 };
 export const NavBarContext = createContext<NavBarContextInterface>(
   {} as NavBarContextInterface
@@ -22,6 +24,7 @@ export const NavBarContext = createContext<NavBarContextInterface>(
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [searchValue, setSearchValue] = useState<string>("");
+  const [loggedKey, setLoggedKey] = useState<string | null>(null);
 
   return (
     <div>
@@ -45,6 +48,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           value={{
             searchValue,
             setSearchValue,
+            loggedKey,
+            setLoggedKey,
           }}
         >
           <Header />
