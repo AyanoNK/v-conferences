@@ -33,7 +33,7 @@ After that, you need to populate the database with the example data in the confi
 python manage.py loaddata initial_companies initial_people initial_speakers initial_talks initial_attendees
 ```
 
-Create a superuser to access Django-Admin panel in order to alter exisiting records.
+Create a superuser to access Django-Admin panel in order to alter exisiting records and to log in into the frontend counterpart.
 
 ```
 python manage.py createsuperuser
