@@ -4,8 +4,25 @@ import Head from "next/head";
 import Header from "../components/Header";
 
 import styles from "../styles/Home.module.scss";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
+
+type NavBarContextInterface = {
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
+};
+export const NavBarContext = createContext<NavBarContextInterface>(
+  {} as NavBarContextInterface
+);
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [searchValue, setSearchValue] = useState<string>("4");
+
   return (
     <div>
       <Head>
@@ -24,13 +41,22 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <div id="flexer">
-        <Header />
-        <main className={styles.main}>
-          <Component {...pageProps} />
-        </main>
+        <NavBarContext.Provider
+          value={{
+            searchValue,
+            setSearchValue,
+          }}
+        >
+          <Header />
+          <main className={styles.main}>
+            <Component {...pageProps} />
+          </main>
+        </NavBarContext.Provider>
       </div>
     </div>
   );
 }
 
 export default MyApp;
+
+export const useNavbarContext = () => useContext(NavBarContext);

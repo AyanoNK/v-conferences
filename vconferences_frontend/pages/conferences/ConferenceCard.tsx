@@ -15,7 +15,7 @@ const TalkCard: FC<Props> = ({ talk }) => (
       Speaker: {talk.speaker.name} - {talk.speaker.email}
     </h5>
     <span>{talk.speaker.bio}</span>
-    <h1>TODO: login/logout, color palette, searchbar, responsive on cards</h1>
+    <h1>TODO: login/logout, searchbar</h1>
   </div>
 );
 

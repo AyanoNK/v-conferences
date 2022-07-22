@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 
 import styles from "../styles/Home.module.scss";
+import { useNavbarContext } from "../pages/_app";
 
 type Row = {
   title: string;
@@ -25,6 +26,8 @@ const rows: Row[] = [
 ];
 
 const Header = () => {
+  const { searchValue, setSearchValue } = useNavbarContext();
+
   return (
     <div className={styles.header}>
       <div className={styles.actions}>
@@ -36,7 +39,12 @@ const Header = () => {
           ))}
         </div>
         <div className={styles.searchbar}>
-          <input type="text" placeholder="Search" />
+          <input
+            type="text"
+            placeholder="Search"
+            defaultValue={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
         </div>
       </div>
       <button>logout</button>
